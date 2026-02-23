@@ -1,0 +1,385 @@
+/* =========================
+   RESET
+========================= */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #121212;
+    color: #ffffff;
+    font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    overflow-x: hidden;
+}
+
+/* =========================
+   MAIN CONTAINER
+========================= */
+.visualizer-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+}
+
+/* =========================
+   HEADER
+========================= */
+header {
+    width: 100%;
+    padding: 20px 0;
+    background-color: #1e1e1e;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+h1 {
+    margin: 0 0 20px 0;
+    font-size: 2.5rem;
+    letter-spacing: 2px;
+    background: linear-gradient(90deg, #bb86fc, #03dac6);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* =========================
+   SLIDER
+========================= */
+.slider-wrapper {
+    margin-bottom: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+}
+
+.slider-label {
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: #03dac6;
+}
+
+.size-slider {
+    width: 200px;
+    accent-color: #bb86fc;
+}
+
+.slider-controls-group {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.icon-btn {
+    width: 38px;
+    height: 32px;
+    padding: 0;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 1rem;
+}
+
+/* =========================
+   CONTROLS
+========================= */
+.controls {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+    padding: 0 20px;
+}
+
+/* =========================
+   BUTTONS
+========================= */
+button {
+    background-color: #333;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all .3s ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, .2);
+}
+
+button:hover:not(:disabled) {
+    background-color: #bb86fc;
+    color: #000;
+    transform: translateY(-2px);
+}
+
+button:disabled {
+    background-color: #555;
+    color: #888;
+    cursor: not-allowed;
+}
+
+.generate-btn {
+    background-color: #03dac6;
+    color: #000;
+    font-weight: bold;
+}
+
+.generate-btn:hover:not(:disabled) {
+    background-color: #00b3a6;
+    color: #fff;
+}
+
+.stop-btn {
+    background-color: #cf6679;
+    color: #000;
+    font-weight: bold;
+}
+
+.stop-btn:hover:not(:disabled) {
+    background-color: #ff5252;
+    color: #fff;
+}
+
+/* =========================
+   MESSAGE
+========================= */
+.message-box {
+    margin: 20px 0;
+    height: 24px;
+    color: #ffb74d;
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+/* =========================
+   BARS CONTAINER
+========================= */
+.bars-container {
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    width: 90%;
+    max-width: 1000px;
+    height: 500px;
+    margin: 0 auto;
+    gap: 4px;
+    padding: 20px;
+    background-color: #1e1e1e;
+    border-radius: 12px;
+    box-shadow: inset 0 2px 10px rgba(0, 0, 0, .5);
+    overflow: hidden;
+    border: #00b3a6 1px solid;
+}
+
+.array-bar {
+    background-color: #bb86fc;
+    flex: 1;
+    border-radius: 4px 4px 0 0;
+    transition: height .05s ease, background-color .1s ease;
+}
+
+.array-bar.active {
+    background-color: #cf6679;
+}
+
+.array-bar.sorted {
+    background-color: #03dac6;
+}
+
+/* =========================
+   MOBILE RESPONSIVE
+========================= */
+@media (max-width: 768px) {
+
+    html,
+    body {
+        overflow-x: hidden;
+    }
+
+    .visualizer-container {
+        min-height: 100vh;
+        max-height: 100vh;
+        padding: 6px;
+    }
+
+    header {
+        padding: 10px 0;
+    }
+
+    h1 {
+        font-size: 1.4rem;
+        margin-bottom: 8px;
+        letter-spacing: 1px;
+    }
+
+    .slider-wrapper {
+        margin-bottom: 8px;
+        gap: 6px;
+    }
+
+    .slider-label {
+        font-size: 0.9rem;
+    }
+
+    .size-slider {
+        width: 150px;
+        max-width: 60%;
+    }
+
+    .slider-controls-group {
+        gap: 10px;
+    }
+
+    .icon-btn {
+        width: 32px;
+        height: 28px;
+        font-size: 0.9rem;
+    }
+
+    .controls {
+        gap: 6px;
+        padding: 0 6px;
+    }
+
+    button {
+        font-size: 0.8rem;
+        padding: 6px 8px;
+    }
+
+    .message-box {
+        margin: 8px 0;
+        font-size: 0.9rem;
+    }
+
+    /* Fit visualization properly */
+    .bars-container {
+        width: 100%;
+        height: 50vh;
+        padding: 6px;
+        gap: 2px;
+        border-radius: 8px;
+        border: #00b3a6 1px solid;
+    }
+
+    .array-bar {
+        border-radius: 2px 2px 0 0;
+    }
+}
+
+/* Extra small phones */
+@media (max-width: 480px) {
+
+    h1 {
+        font-size: 1.25rem;
+    }
+
+    button {
+        font-size: 0.75rem;
+        padding: 5px 7px;
+    }
+
+    .bars-container {
+        height: 45vh;
+    }
+}
+
+/* =====================================
+   ULTRA COMPACT LANDSCAPE MOBILE
+===================================== */
+@media (max-width: 900px) and (orientation: landscape) {
+
+    html,
+    body {
+        height: 100dvh;
+        margin: 0;
+        padding: 0;
+        /* overflow: hidden; */
+    }
+
+    .visualizer-container {
+        height: 100dvh;
+        display: flex;
+        flex-direction: column;
+    }
+
+    /* ----- SUPER SMALL HEADER ----- */
+    header {
+        padding: 2px 0;
+    }
+
+    h1 {
+        font-size: 0.85rem;
+        margin: 0 0 2px 0;
+        letter-spacing: 0.5px;
+    }
+
+    .slider-wrapper {
+        flex-direction: row;
+        gap: 6px;
+        margin-bottom: 2px;
+    }
+
+    .slider-label {
+        font-size: 0.65rem;
+    }
+
+    .size-slider {
+        width: 100px;
+    }
+
+    .slider-controls-group {
+        gap: 6px;
+    }
+
+    .icon-btn {
+        width: 24px;
+        height: 20px;
+        font-size: 0.75rem;
+    }
+
+    /* ----- SMALL BUTTONS ----- */
+    .controls {
+        gap: 4px;
+        padding: 0 4px;
+    }
+
+    button {
+        padding: 3px 6px;
+        font-size: 0.65rem;
+        border-radius: 4px;
+    }
+
+    .message-box {
+        margin: 2px 0;
+        height: 14px;
+        font-size: 0.75rem;
+    }
+
+    /* ----- FULL HEIGHT BARS ----- */
+    .bars-container {
+        /* flex: 1; */
+        width: 70%;
+        padding: 4px;
+        gap: 1px;
+        height: 70vh;
+        border: #00b3a6 1px solid;
+        margin-top: 1%;
+    }
+
+    .array-bar {
+        border-radius: 2px 2px 0 0;
+    }
+}
